@@ -12,7 +12,7 @@ def write_data(data):
 def read_data():
     with open (DATA_PATH, encoding="utf-8") as file:
         data = json.load(file)
-        print(type(data))
+        return data
     
 def check_username(data, username):
     if username in data:
@@ -51,4 +51,4 @@ def change_password(username, password, new_password,):
         print("password could not be changed")
 
 
-change_password("test7", "Heslo heslo","heslo7")
+change_password("test7", "heslo7","heslo heslo")
