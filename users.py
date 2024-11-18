@@ -53,4 +53,3 @@ def change_password(username, password, new_password,):
 
 
 change_password("test7", "Heslo heslo","heslo7")
-
