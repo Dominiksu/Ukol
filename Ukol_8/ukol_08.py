@@ -1,9 +1,9 @@
 import re
 
 def check_phonenumber(phone_number):
-    rx_number = re.compile(r'^(\+?\d{3})? ? ?\d{3} ?\d{3} ?\d{3}$')
+    rx_number = re.compile(r'^(\+?\d{3})? ?\d{3} ?\d{3} ?\d{3}$')
     phone_check = rx_number.search(phone_number)
-    return bool (phone_check)
+    return bool (phone_check) 
 
 print(check_phonenumber('777777777'))
 print(check_phonenumber('777 777 777'))
