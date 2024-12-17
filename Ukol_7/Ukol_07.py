@@ -38,15 +38,33 @@ countries = {
 }
 
 
-def countries_operations():
+def countries_sum():
     summary = sum(countries.values())
+    print(f'Součet populací všech zemí ze slovníku je: {summary}')
+
+def countries_average():
+    average = sum(countries.values())/len(countries)
+    print (f'Průměr z populací všech zemí ze slovníku je: {average}')
+
+def countries_max():
     maximum = max(countries.values())
+    for k, v in countries.items():
+        if v == maximum:
+            print(f'Země s největším počtem obyvatel je {k}, které má {v} obyvatel')
+            break
+        
+
+
+def countries_min():
     minimum = min(countries.values())
-    result = [summary, 
-              maximum, 
-              minimum]
-    return result
+    for k, v in countries.items():
+        if v == minimum:
+            print(f'Země s nejmenším počtem obyvatel je {k}, které má {v} obyvatel')
+            break
+        
 
-print(countries_operations())
 
-
+print (countries_max())
+print (countries_min())
+print (countries_average())
+print (countries_sum())
