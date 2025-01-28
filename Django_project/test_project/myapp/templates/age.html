@@ -1,0 +1,64 @@
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="color-scheme" content="light dark">
+   
+    <link
+  rel="stylesheet"
+  href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.min.css"
+>
+    <style>
+        body{
+            background-color: lightgray;
+        }
+        
+        h1{
+            color: black;
+        }
+
+        p{
+            color:black
+        }
+
+        input[type="number"]{
+            color: black;
+            width: 500px;
+            height: 50px;
+            background-color: lightskyblue;
+            border: 0px;
+            
+            }
+        label{
+            color:black
+        }
+        button[type= "submit"]{
+
+            color:black;
+            line-height: 1;
+            position: relative;
+            left: 20px;
+            width: 115px;
+            height: 50px;
+            background-color: lightskyblue;
+            border: 0px;
+
+        }
+    </style>
+    <title>Age calculator</title>
+  </head>
+  <body>
+    <main class="container">
+      <h1>Kalkulačka věku</h1>
+    <form action= "/age/" method= "get">
+
+    <label for="a">zadejte rok:</label>
+    <input type="number" name= "a" value= "{{request.GET.a}}"><button type = "submit">Odeslat</button>
+
+    {% if age %}
+    <p><b>{{ message }}</b></p>
+    {%endif%}
+    </form>
+    </main>
+  </body>
+</html>
