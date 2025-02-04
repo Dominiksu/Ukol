@@ -14,8 +14,17 @@
     <main class="container">
      <h1> Calculator </h1>
      <form action="/calculator/" method="get">
+
+        <select name="operation">
+          <option value="plus">+</option>
+          <option value="minus">-</option>
+          <option value="multiple">&times;</option>
+          <option value="divide">/</option>
+        </select> 
+
         <input name= "a" required type= "number" value= "{{ request.GET.a }}">
         <input name= "b" required type= "number" value= "{{ request.GET.b }}">
+        <label for="result">{{request.GET.a}} {{request.GET.operation}} {{ request.GET.b }} =</label>
         <input value="{{ result }}" readonly>
         <button type="submit">Calculate</button>
      </form>

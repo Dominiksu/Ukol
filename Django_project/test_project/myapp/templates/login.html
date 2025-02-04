@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+</head>
+<body>
+    <h1>Login</h1>
+    <!--enctype= 'multipart/from-data' používám pokud potřebuji posílat soubory-->
+    <form method="post" action="/login/"
+    enctype="multipart/form-data">
+        {% csrf_token %}
+        <input name="username" required>
+        <input type="password" name="password" required>
+        <input type="file" name="my_file">
+        <button type="submit">Přihlásit se</button>
+    </form>
+</body>
+</html>

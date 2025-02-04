@@ -34,16 +34,44 @@ def url_paths(request):
 def calculator(request):
 
     try:
+        operation = request.GET['operation']
         a = int(request.GET['a'])
         b = int(request.GET['b'])
-        result = a + b
+        if operation == 'plus':
+            result = a + b
+        elif operation == 'minus':
+            result = a - b
+        elif operation == 'multiple':
+            result = a * b
+        elif operation == 'divide':
+            result = a / b
+
+        
     except (KeyError, TypeError, ValueError):
         result = ''
+    except ZeroDivisionError:
+        result = ''
+        
     
     context = {
         'result' : result
     }
     return render(request, 'calculator.html', context)
+
+def login(request):
+    username = request.POST.get('username', '')
+    password = request.POST.get('password', '')
+
+    print(request.FILES)
+    print(request._body)
+    print(request.POST)
+    print(username, password)
+
+    if username == 'Dominik' and password == 'heslo':
+        return render(request, 'login_success.html')
+
+
+    return render(request, 'login.html')
 
 def test_template(request):
 
@@ -106,4 +134,16 @@ def age(request):
     }
     return render(request, 'age.html', context)
 
+def my_page(request, name):
+    return HttpResponse(name)
 
+
+def article(request, name, number):
+    return HttpResponse(f'''
+<h1>{name} - {number}
+''')
+
+def pages(request, number, name):
+    return HttpResponse(f'''
+<h1>{number} / {name}
+''')
