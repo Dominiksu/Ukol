@@ -1,0 +1,43 @@
+{% extends "school/_base.html" %}
+
+{% block school_title %}Courses{% endblock %}
+{% block school_desc %}Courses of School App, for IT School in Prague.{% endblock %}
+
+
+{% block school_base %}
+    <h1>Courses</h1>
+    <ul class="list">
+        {% for x in object_list %}
+        <li>
+            {# url 'school:course_detail' pk=course.id#}
+            <a href="{{ x.get_absolute_url }}">
+                {% if x.image %}
+                <img src="{{ x.image.url }}" alt="" loading="lazy">
+                {% else %}
+                <img src="https://picsum.photos/100" alt="" loading="lazy">
+                {% endif %}
+                <h2>{{ x.name }} - {{ x.lector.username }}</h2>
+            </a>
+        </li>
+    
+    {% endfor %}
+    </ul>
+    {% if is_paginated %}
+        <nav>
+            <ul>
+            {% for number in paginator_range %}
+            <li>
+                {% if number != paginator.ELLIPSIS %}
+                <a href="{{ request.path }}?page={{ number }}"> {{ number }} </a>
+                {% else %}
+                {{ number }}
+                {% endif %}
+            </li>
+            {% endfor %}
+            
+            </ul>
+        </nav>
+    {% endif %}
+
+
+{% endblock %}

@@ -1,0 +1,24 @@
+ul.list {
+    max-width: 900px;
+    margin: 2em 0 3em 0;
+    padding: 0;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1em;
+}
+
+ul.list li {
+    list-style-type: none;
+}
+
+ul.list li a {
+    display: flex;
+    gap: 1em;
+}
+
+ul.list li a img {
+    border-radius: 50%;
+    width: 64px;
+    height: 64px;
+    object-fit: cover;
+}
